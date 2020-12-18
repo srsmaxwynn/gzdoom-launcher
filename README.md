@@ -14,9 +14,9 @@ Fixed typo in labelMultItemGuide.
 When opening the "Select PWADs" dialog use .pk3 files as default extension.
 Now the launcher founds the WAD and the GZD/ZD/LZD directories using `AppDomain.CurrentDomain.BaseDirectory`, not `Directory.GetCurrentDirectory()`.
 Added some parameters to the launcher:
-	-loadprofile [path] to autoload a profile file.
-	-autostart to automatically start the game when you open the launcher
-	-closeonstart to automatically check the `Close launcher on start` checkbox.
+  * `-loadprofile [path]` to autoload a profile file.
+  * `-autostart` to automatically start the game when you open the launcher
+  * `-closeonstart` to automatically check the `Close launcher on start` checkbox.
 
 * v1.4 new features: Added a remove IWAD and PWADs button. Removed the window that asks you to copy the WAD in the IWADs/PWADs folder.
 Fixes and minor things:
