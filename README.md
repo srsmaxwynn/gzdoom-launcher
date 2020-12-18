@@ -1,4 +1,4 @@
-GZDoom Launcher v1.4.1.1 source code
+# GZDoom Launcher v1.4.1.1 source code
 
 "ZDoom", "GZDoom", "LZDoom" and "Doom" aren't mine.
 
@@ -7,7 +7,7 @@ Used NuGet packages:
 - Newtonsoft Json
 - SharpZipLib
 
-# CHANGELOG
+## CHANGELOG
 * v1.4.1.1 Fixes and minor things:
 Now you can load a profile without getting weird errors.
 Fixed typo in labelMultItemGuide.
