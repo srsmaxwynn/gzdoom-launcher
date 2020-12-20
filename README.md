@@ -1,4 +1,4 @@
-# GZDoom Launcher v1.4.1.1 source code
+# GZDoom Launcher
 
 "ZDoom", "GZDoom", "LZDoom" and "Doom" aren't mine.
 
