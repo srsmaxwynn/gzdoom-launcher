@@ -3,9 +3,9 @@
 "ZDoom", "GZDoom", "LZDoom" and "Doom" aren't mine.
 
 Used NuGet packages:
-- ILMerge and MSBuild.ILMerge.Task (used to *merge* libs into one executable)
-- Newtonsoft Json
-- SharpZipLib
+- [ILMerge](https://www.nuget.org/packages/ILMerge/) and [MSBuild.ILMerge.Task](https://www.nuget.org/packages/MSBuild.ILMerge.Task/) (used to automatically *merge* libs into one executable)
+- [Newtonsoft Json](https://www.nuget.org/packages/Newtonsoft.Json/)
+- [SharpZipLib](https://www.nuget.org/packages/SharpZipLib/)
 
 ## CHANGELOG
 * v1.4.1.1 Fixes and minor things:
