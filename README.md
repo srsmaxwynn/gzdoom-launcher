@@ -3,7 +3,7 @@
 "ZDoom", "GZDoom", "LZDoom" and "Doom" aren't mine.
 
 Used NuGet packages:
-- Fody (used to merge libs into one executable)
+- ILMerge and MSBuild.ILMerge.Task (used to *merge* libs into one executable)
 - Newtonsoft Json
 - SharpZipLib
 
@@ -31,4 +31,4 @@ Now you can add multiple wads at the same time with the + button.
 * v1.1 new features: Replaced the "Open folder" button with the "Add WAD" one.
 
 
-You can find the latest not-zipped exe in the bin/Release folder.
+You can find the latest work in progress executable in the bin/Release folder.

@@ -133,7 +133,7 @@
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.StartButton.Click += new System.EventHandler(this.StartGZD);
             // 
             // PWADlist
             // 
@@ -164,7 +164,7 @@
             this.ReloadButton.TabIndex = 0;
             this.ReloadButton.Text = "⟳";
             this.ReloadButton.UseVisualStyleBackColor = true;
-            this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
+            this.ReloadButton.Click += new System.EventHandler(this.ReloadList);
             // 
             // CloseOnStartButton
             // 

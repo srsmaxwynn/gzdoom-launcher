@@ -17,9 +17,14 @@ namespace GZDoomLauncher
             InitializeComponent();
         }
 
-        private void GoToSiteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GitHubLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://pggamer2.github.io/GZL/");
+            System.Diagnostics.Process.Start("https://github.com/PGgamer2/gzdoom-launcher");
+        }
+
+        private void ModDBLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.moddb.com/mods/gzdoom-launcher");
         }
     }
 }

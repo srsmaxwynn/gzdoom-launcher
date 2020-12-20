@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoScreen));
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.TextBox = new System.Windows.Forms.Label();
-            this.GoToSiteLink = new System.Windows.Forms.LinkLabel();
+            this.GitHubLink = new System.Windows.Forms.LinkLabel();
+            this.ModDBLink = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,26 +55,38 @@
             this.TextBox.Name = "TextBox";
             this.TextBox.Size = new System.Drawing.Size(306, 95);
             this.TextBox.TabIndex = 1;
-            this.TextBox.Text = "GZDoom Launcher 1.4.1.1 \r\nMade by PGgamer\r\n\r\nThanks to ID Software for this aweso" +
-    "me game.\r\nThanks to the ZDoom Team for this source port.";
+            this.TextBox.Text = "GZDoom Launcher 1.4.1.2\r\nMade by PG\r\n\r\nThanks to ID Software for this awesome gam" +
+    "e.\r\nThanks to the ZDoom Team for this source port.";
             // 
-            // GoToSiteLink
+            // GitHubLink
             // 
-            this.GoToSiteLink.AutoSize = true;
-            this.GoToSiteLink.Location = new System.Drawing.Point(179, 122);
-            this.GoToSiteLink.Name = "GoToSiteLink";
-            this.GoToSiteLink.Size = new System.Drawing.Size(60, 13);
-            this.GoToSiteLink.TabIndex = 2;
-            this.GoToSiteLink.TabStop = true;
-            this.GoToSiteLink.Text = "Official Site";
-            this.GoToSiteLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GoToSiteLink_LinkClicked);
+            this.GitHubLink.AutoSize = true;
+            this.GitHubLink.Location = new System.Drawing.Point(179, 122);
+            this.GitHubLink.Name = "GitHubLink";
+            this.GitHubLink.Size = new System.Drawing.Size(69, 13);
+            this.GitHubLink.TabIndex = 2;
+            this.GitHubLink.TabStop = true;
+            this.GitHubLink.Text = "Source Code";
+            this.GitHubLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GitHubLink_LinkClicked);
+            // 
+            // ModDBLink
+            // 
+            this.ModDBLink.AutoSize = true;
+            this.ModDBLink.Location = new System.Drawing.Point(254, 122);
+            this.ModDBLink.Name = "ModDBLink";
+            this.ModDBLink.Size = new System.Drawing.Size(71, 13);
+            this.ModDBLink.TabIndex = 3;
+            this.ModDBLink.TabStop = true;
+            this.ModDBLink.Text = "ModDB Page";
+            this.ModDBLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ModDBLink_LinkClicked);
             // 
             // InfoScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 184);
-            this.Controls.Add(this.GoToSiteLink);
+            this.Controls.Add(this.ModDBLink);
+            this.Controls.Add(this.GitHubLink);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.ImageBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -95,6 +108,7 @@
 
         private System.Windows.Forms.PictureBox ImageBox;
         private System.Windows.Forms.Label TextBox;
-        private System.Windows.Forms.LinkLabel GoToSiteLink;
+        private System.Windows.Forms.LinkLabel GitHubLink;
+        private System.Windows.Forms.LinkLabel ModDBLink;
     }
 }

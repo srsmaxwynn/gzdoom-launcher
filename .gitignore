@@ -1,2 +1,23 @@
+# Doom files
 *.wad
 *.pk3
+
+# VS and VS Code
+.vs/*
+obj/*
+bin/Debug/*
+
+# Program folders to ignore
+bin/Release/ZDoom/*
+bin/Release/GZDoom/*
+bin/Release/LZDoom/*
+bin/Release/IWADS/*
+bin/Release/PWADS/*
+
+# Program files to ignore
+bin/Release/GZDoomLauncher.exe.config
+bin/Release/GZDoomLauncher.pdb
+
+# Other
+desktop.ini
+Thumbs.db

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace GZDoomLauncher
@@ -81,7 +82,7 @@ namespace GZDoomLauncher
             else e.Cancel = true;
         }
 
-        private void ReloadList()
+        private void ReloadList([Optional] object sender, [Optional] EventArgs e)
         {
             Directory.CreateDirectory(iwadpath);
             Directory.CreateDirectory(pwadpath);
@@ -132,18 +133,8 @@ namespace GZDoomLauncher
             }
             ResizeListViewColumns(PWADlist);
         }
-
-        private void ReloadButton_Click(object sender, EventArgs e)
-        {
-            ReloadList();
-        }
-
-        private void StartButton_Click(object sender, EventArgs e)
-        {
-            StartGZD();
-        }
         
-        private void StartGZD()
+        private void StartGZD([Optional] object sender, [Optional] EventArgs e)
         {
             string ZDName = "GZDoom";
             string ZDDir = GZpath;
