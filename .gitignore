@@ -6,6 +6,7 @@
 .vs/*
 obj/*
 bin/Debug/*
+packages/*
 
 # Program folders to ignore
 bin/Release/ZDoom/*

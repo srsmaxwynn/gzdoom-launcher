@@ -9,8 +9,8 @@ namespace GZDoomLauncher
 {
     static class Program
     {
-        // GZLauncher made by PGgamer.
-        // "GZDoom" and "Doom" aren't mine.
+        // GZLauncher made by PG.
+        // ZDoom, GZDoom, LZDoom and Doom aren't mine.
         [STAThread]
         static void Main(string[] args)
         {
