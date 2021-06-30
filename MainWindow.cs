@@ -379,7 +379,7 @@ namespace GZDoomLauncher
         {
             string FinalJSON = "{\n";
             if (IWADlist.SelectedItems.Count > 0) FinalJSON += "\"SelectedIWAD\": \"" + IWADlist.SelectedItems[0].Text + "\",\n";
-            if (PWADlist.SelectedItems.Count > 0)
+            if (PWADlist.CheckedItems.Count > 0)
             {
                 FinalJSON += "\"SelectedPWADs\": [";
                 for (int i = 0; i < PWADlist.CheckedItems.Count; i++)
@@ -521,12 +521,22 @@ namespace GZDoomLauncher
                         if ((JArray)Jobj["SelectedPWADs"] != null)
                         {
                             JArray JSelPWADsItems = (JArray)Jobj["SelectedPWADs"];
-                            PWADlist.Items.Clear();
                             for (int i = 0; i < JSelPWADsItems.Count; i++)
                             {
-                                if (!PWADlist.Items.Contains((string)Jobj["SelectedPWADs"][i]))
+                                if (PWADlist.Items.Contains((string)Jobj["SelectedPWADs"][i]))
 								{
-                                    PWADlist.SetSelected(PWADlist.Items.Add((string)Jobj["SelectedPWADs"][i]), true);
+                                    for (int a = 0; a < PWADlist.Items.Count; a++)
+									{
+                                        if (PWADlist.Items[a].ToString() == (string)Jobj["SelectedPWADs"][i])
+										{
+                                            PWADlist.SetItemChecked(a, true);
+                                            break;
+										}
+									}
+                                }
+                                else
+								{
+                                    PWADlist.SetItemChecked(PWADlist.Items.Add((string)Jobj["SelectedPWADs"][i]), true);
                                 }
                             }
                         }
