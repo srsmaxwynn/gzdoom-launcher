@@ -99,7 +99,7 @@ namespace GZDoomLauncher
             List<string> IWADStrList = new List<string>(totalIWADS);
             for (int i = 0; i < IWADlist.Items.Count; i++)
             {
-                if (IWADlist.Items[i].Text == $"{iwadpath}\\{Path.GetFileName(IWADlist.Items[i].Text)}")
+                if (!File.Exists(IWADlist.Items[i].Text))
                     IWADlist.Items[i].Remove();
             }
             foreach (string IWelem in IWADStrList)
@@ -123,15 +123,14 @@ namespace GZDoomLauncher
             List<string> PWADStrList = new List<string>(totalPWADS);
             for (int i = 0; i < PWADlist.Items.Count; i++)
             {
-                if (PWADlist.Items[i].Text == $"{pwadpath}\\{Path.GetFileName(PWADlist.Items[i].Text)}")
-                    PWADlist.Items[i].Remove();
+                if (!File.Exists(PWADlist.Items[i].ToString()))
+                    PWADlist.Items.RemoveAt(i);
             }
             foreach (string PWelem in PWADStrList)
             {
-                if (PWADlist.FindItemWithText(PWelem) == null)
+                if (!PWADlist.Items.Contains(PWelem))
                     PWADlist.Items.Add(PWelem);
             }
-            ResizeListViewColumns(PWADlist);
         }
         
         private void StartGZD([Optional] object sender, [Optional] EventArgs e)
@@ -165,12 +164,9 @@ namespace GZDoomLauncher
                     if (PWADlist.SelectedItems.Count > 0)
                     {
                         string selectedPWADS = String.Empty;
-                        for (int i = 0; i < PWADlist.Items.Count; i++)
+                        for (int i = 0; i < PWADlist.CheckedItems.Count; i++)
                         {
-                            if (PWADlist.Items[i].Selected)
-                            {
-                                selectedPWADS += " \"" + PWADlist.Items[i].Text + "\"";
-                            }
+                            selectedPWADS += " \"" + PWADlist.CheckedItems[i].ToString() + "\"";
                         }
                         totalArguments += " -file" + selectedPWADS;
                     }
@@ -374,10 +370,9 @@ namespace GZDoomLauncher
             AddPWADialog.ShowDialog();
             foreach (string file in AddPWADialog.FileNames)
             {
-                if (!String.IsNullOrWhiteSpace(file) && PWADlist.FindItemWithText(file) == null)
+                if (!String.IsNullOrWhiteSpace(file) && !PWADlist.Items.Contains(file))
                     PWADlist.Items.Add(file);
             }
-            ResizeListViewColumns(PWADlist);
         }
 
         private void SaveProfileButton_Click(object sender, EventArgs e)
@@ -387,10 +382,9 @@ namespace GZDoomLauncher
             if (PWADlist.SelectedItems.Count > 0)
             {
                 FinalJSON += "\"SelectedPWADs\": [";
-                for (int i = 0; i < PWADlist.Items.Count; i++)
+                for (int i = 0; i < PWADlist.CheckedItems.Count; i++)
                 {
-                    if (PWADlist.Items[i].Selected)
-                        FinalJSON += " \"" + PWADlist.Items[i].Text + "\",";
+                    FinalJSON += " \"" + PWADlist.CheckedItems[i].ToString() + "\",";
                 }
                 FinalJSON = FinalJSON.Remove(FinalJSON.Length - 1);
                 FinalJSON += " ],\n";
@@ -527,15 +521,14 @@ namespace GZDoomLauncher
                         if ((JArray)Jobj["SelectedPWADs"] != null)
                         {
                             JArray JSelPWADsItems = (JArray)Jobj["SelectedPWADs"];
-                            for (int i = 0; i < PWADlist.Items.Count; i++)
-                                PWADlist.Items[i].Selected = false;
+                            PWADlist.Items.Clear();
                             for (int i = 0; i < JSelPWADsItems.Count; i++)
                             {
-                                if (PWADlist.FindItemWithText((string)Jobj["SelectedPWADs"][i]) == null)
-                                    PWADlist.Items.Add((string)Jobj["SelectedPWADs"][i]);
-                                PWADlist.FindItemWithText((string)Jobj["SelectedPWADs"][i]).Selected = true;
+                                if (!PWADlist.Items.Contains((string)Jobj["SelectedPWADs"][i]))
+								{
+                                    PWADlist.SetSelected(PWADlist.Items.Add((string)Jobj["SelectedPWADs"][i]), true);
+                                }
                             }
-                            ResizeListViewColumns(PWADlist);
                         }
 
                         if ((string)Jobj["Audio"] != null)
@@ -722,17 +715,17 @@ namespace GZDoomLauncher
             else
             {
                 string alertboxmsg = "Are you sure to remove these PWADs from the list?";
-                foreach (ListViewItem selPWAD in PWADlist.SelectedItems)
+                for (int i = 0; i < PWADlist.SelectedItems.Count; i++)
                 {
-                    if (File.Exists($"{pwadpath}\\{Path.GetFileName(selPWAD.Text)}"))
+                    if (PWADlist.SelectedItems[i].ToString().StartsWith(pwadpath))
                         alertboxmsg += "\nEvery file you wanted to remove that is in the PWADs folder will reappear after you click the reload button.";
                 }
                 DialogResult RemPWADsAsk = MessageBox.Show(alertboxmsg, "GZDoom Launcher", MessageBoxButtons.YesNo);
                 if (RemPWADsAsk == DialogResult.Yes)
                 {
-                    foreach (ListViewItem selPWAD in PWADlist.SelectedItems) selPWAD.Remove();
+                    for (int i = 0; i < PWADlist.SelectedItems.Count; i++)
+                        PWADlist.Items.Remove(PWADlist.SelectedItems[i]);
                 }
-                ResizeListViewColumns(PWADlist);
             }
         }
 
