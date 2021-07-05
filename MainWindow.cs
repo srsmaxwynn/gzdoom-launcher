@@ -486,7 +486,7 @@ namespace GZDoomLauncher
         {
             OpenFileDialog ProfilePath = new OpenFileDialog();
             ProfilePath.DefaultExt = "gzlp";
-            ProfilePath.Filter = "GZLauncher Profile (*.gzlp)|*.gzlp|JavaScript Object Notation (*.json)|*.json|All files (*.*)|*.*";
+            ProfilePath.Filter = "GZLauncher Profile (*.gzlp;*.json)|*.gzlp;*.json|All files (*.*)|*.*";
             ProfilePath.ShowDialog();
             if (ProfilePath.FileName.Length > 0)
                 LoadProfile(ProfilePath.FileName);
@@ -746,5 +746,29 @@ namespace GZDoomLauncher
                 column.Width = -1;
             }
         }
-    }
+
+		private void DownPWADsButton_Click(object sender, EventArgs e)
+		{
+            if (PWADlist.SelectedIndex != -1 && PWADlist.SelectedIndex < PWADlist.Items.Count - 1)
+			{
+                PWADlist.Items.Insert(PWADlist.SelectedIndex + 2, PWADlist.SelectedItem);
+                PWADlist.SetItemChecked(PWADlist.SelectedIndex + 2, PWADlist.GetItemChecked(PWADlist.SelectedIndex));
+                int prevSelIndex = PWADlist.SelectedIndex;
+                PWADlist.Items.RemoveAt(PWADlist.SelectedIndex);
+                PWADlist.SelectedIndex = prevSelIndex + 1;
+            }
+		}
+
+		private void UpPWADsButton_Click(object sender, EventArgs e)
+		{
+            if (PWADlist.SelectedIndex > 0)
+            {
+                PWADlist.Items.Insert(PWADlist.SelectedIndex - 1, PWADlist.SelectedItem);
+                PWADlist.SetItemChecked(PWADlist.SelectedIndex - 2, PWADlist.GetItemChecked(PWADlist.SelectedIndex));
+                int prevSelIndex = PWADlist.SelectedIndex;
+                PWADlist.Items.RemoveAt(PWADlist.SelectedIndex);
+                PWADlist.SelectedIndex = prevSelIndex - 2;
+            }
+        }
+	}
 }

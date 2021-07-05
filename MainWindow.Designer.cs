@@ -75,6 +75,8 @@
 			this.RemIWADButton = new System.Windows.Forms.Button();
 			this.RemPWADsButton = new System.Windows.Forms.Button();
 			this.PWADlist = new System.Windows.Forms.CheckedListBox();
+			this.UpPWADsButton = new System.Windows.Forms.Button();
+			this.DownPWADsButton = new System.Windows.Forms.Button();
 			this.groupBoxLaunchSettings.SuspendLayout();
 			this.groupBoxMultiplayer.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.HostNumber)).BeginInit();
@@ -559,11 +561,35 @@
 			this.PWADlist.Size = new System.Drawing.Size(532, 124);
 			this.PWADlist.TabIndex = 17;
 			// 
+			// UpPWADsButton
+			// 
+			this.UpPWADsButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
+			this.UpPWADsButton.Location = new System.Drawing.Point(472, 134);
+			this.UpPWADsButton.Name = "UpPWADsButton";
+			this.UpPWADsButton.Size = new System.Drawing.Size(20, 20);
+			this.UpPWADsButton.TabIndex = 18;
+			this.UpPWADsButton.Text = "ᐱ";
+			this.UpPWADsButton.UseVisualStyleBackColor = true;
+			this.UpPWADsButton.Click += new System.EventHandler(this.UpPWADsButton_Click);
+			// 
+			// DownPWADsButton
+			// 
+			this.DownPWADsButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DownPWADsButton.Location = new System.Drawing.Point(446, 134);
+			this.DownPWADsButton.Name = "DownPWADsButton";
+			this.DownPWADsButton.Size = new System.Drawing.Size(20, 20);
+			this.DownPWADsButton.TabIndex = 19;
+			this.DownPWADsButton.Text = "ᐯ";
+			this.DownPWADsButton.UseVisualStyleBackColor = true;
+			this.DownPWADsButton.Click += new System.EventHandler(this.DownPWADsButton_Click);
+			// 
 			// MainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(959, 346);
+			this.Controls.Add(this.DownPWADsButton);
+			this.Controls.Add(this.UpPWADsButton);
 			this.Controls.Add(this.PWADlist);
 			this.Controls.Add(this.RemPWADsButton);
 			this.Controls.Add(this.RemIWADButton);
@@ -649,6 +675,8 @@
         private System.Windows.Forms.Button RemIWADButton;
         private System.Windows.Forms.Button RemPWADsButton;
 		private System.Windows.Forms.CheckedListBox PWADlist;
+		private System.Windows.Forms.Button UpPWADsButton;
+		private System.Windows.Forms.Button DownPWADsButton;
 	}
 }
 
